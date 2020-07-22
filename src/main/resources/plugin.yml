@@ -1,4 +1,5 @@
-name: plumio
+main: fr.progz.io.Main
+name: PlumIO
+description: IO Plugin for Plum Server
+authors: ["Meltwin"]
 version: 1.0.0
-author: Meltwin
-main: fr.progz.plumio.PlumIO

@@ -36,6 +36,16 @@
             <artifactId>commons-codec</artifactId>
             <version>1.14</version>
         </dependency>
+
+        <dependency>
+            <groupId>fr.progz.plum</groupId>
+            <artifactId>plum</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>
+                D:/Dev/MCPlugin/0_Output/compiles/Plum.jar
+            </systemPath>
+        </dependency>
     </dependencies>
         
     <build>
@@ -70,7 +80,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <tasks>
-                        <copy file="target/plumio-1.0.0-shaded.jar" todir="D:\Dev\MCPlugin\0_Output\1.16.1/plugins"/>
+                        <copy file="target/plumio-1.0.0.jar" todir="D:\Dev\MCPlugin\0_Output\compiles/plugins"/>
                     </tasks>
                 </configuration>
                 <executions>
