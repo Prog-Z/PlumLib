@@ -14,13 +14,6 @@ public class DBCreator extends PlumDBCreator {
 		
 		// SET Tables
 
-		T_PlumProperties prop = new T_PlumProperties();
-		prop.addLine("version", ConfigFiles.DATABASE_VERSION);
-		TABLES.add(prop);
-		
-		T_Users users = new T_Users();
-		TABLES.add(users);
-
 		T_Perms perms = new T_Perms();
 		TABLES.add(perms);
 

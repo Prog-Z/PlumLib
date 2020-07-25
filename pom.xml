@@ -43,7 +43,7 @@
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>
-                D:/Dev/MCPlugin/0_Output/compiles/plum-1.0.0.jar
+                /home/meltwin/Bureau/Plum/builds/plum-1.0.0.jar
             </systemPath>
         </dependency>
     </dependencies>
@@ -80,7 +80,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <tasks>
-                        <copy file="target/plumio-1.0.0.jar" todir="D:\Dev\MCPlugin\0_Output\compiles"/>
+                        <copy file="target/plumio-1.0.0.jar" todir="/home/meltwin/Bureau/Plum/builds/"/>
                     </tasks>
                 </configuration>
                 <executions>
