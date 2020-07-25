@@ -7,7 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.progz.io.checker.ConfigDirChecker;
 import fr.progz.io.checker.FileChecker;
-import fr.progz.io.plum.v1.DBCreator;
 import fr.progz.plumlib.arch.IModuleChat;
 /**
  *  Plugin class for IO Lib
@@ -37,7 +36,6 @@ public class Main extends JavaPlugin implements IModuleChat {
 	 */
 	private void checkDB() {
 		FileChecker dbFile = new FileChecker(ConfigFiles.DATABASE_FILE);
-		DBCreator creator = new DBCreator();
 		if (!dbFile.fileExist()) {
 			try {
 				dbFile.createFile(); // Create the database
@@ -48,8 +46,7 @@ public class Main extends JavaPlugin implements IModuleChat {
 						e.printStackTrace();
 					}
 				}
-				creator.createDB(); // Initialize the DB (tables, lines)
-				this.checkDB();
+				//this.checkDB();
 			} catch (IOException e) {e.printStackTrace();disablePlugin();} 
 		}
 		else {
