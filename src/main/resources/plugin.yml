@@ -3,3 +3,4 @@ name: PlumIO
 description: IO Plugin for Plum Server
 authors: ["Meltwin"]
 version: 1.0.0
+depend: [plumlib]
