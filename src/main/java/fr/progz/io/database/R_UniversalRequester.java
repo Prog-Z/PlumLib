@@ -1,6 +1,5 @@
 package fr.progz.io.database;
 
-import fr.progz.io.ConfigFiles;
 /**
  * Speed, easy requester on the db
  * @author Meltwin

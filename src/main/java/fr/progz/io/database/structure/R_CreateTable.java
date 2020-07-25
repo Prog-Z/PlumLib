@@ -1,6 +1,5 @@
 package fr.progz.io.database.structure;
 
-import fr.progz.io.ConfigFiles;
 import fr.progz.io.database.DBRequest;
 import fr.progz.io.database.errors.DBException;
 
