@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
  * @author Meltwin
  * @version 1.0
  */
-public interface CmdHandler {
+public interface ICmdHandler {
     public default boolean command(CommandSender sender, Command command, String label, String[] args) {
         return true;
     };

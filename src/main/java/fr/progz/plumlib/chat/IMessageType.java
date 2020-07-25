@@ -2,7 +2,7 @@ package fr.progz.plumlib.chat;
 
 import org.bukkit.ChatColor;
 
-public interface MessageType {
+public interface IMessageType {
     
     byte DEFAULT = 0;
     byte SUCCESS = 1;
