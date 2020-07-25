@@ -1,6 +1,6 @@
 package fr.progz.io;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class IOMessage {
     public static String moduleName = "PlumIO";
