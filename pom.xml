@@ -9,15 +9,15 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	
     <!--Repositories-->
     <repositories>
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
@@ -30,28 +30,6 @@
             <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <!--Bukkit API-->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.16.1-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-		<!-- additional API - created in local repositories after building the spigot server with BuildTools.jar -->
-		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot</artifactId>
-			<version>1.16.1-R0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- additional API - created in local repositories after building the spigot server with BuildTools.jar -->
-		<dependency>
-			<groupId>org.bukkit</groupId>
-			<artifactId>craftbukkit</artifactId>
-			<version>1.16.1-R0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency>
-
     </dependencies>
         
     <build>
@@ -60,7 +38,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <tasks>
-                        <copy file="target/plumlib-1.0.0.jar" todir="D:/Dev/MCPlugin/0_Output/1.16.1/plugins"/>
+                        <copy file="target/plumlib-1.0.0.jar" todir="D:/Dev/MCPlugin/0_Output/compiles"/>
                     </tasks>
                 </configuration>
                 <executions>

@@ -1,22 +1,32 @@
 package fr.progz.plumlib;
 
-import java.util.logging.Level;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 
-public class PLib extends JavaPlugin implements Listener {
-	
-	@EventHandler
-	public void onLogin(PlayerJoinEvent event) {
-		event.getPlayer().sendMessage("Salut! " + "Felicitări pentru primul mod de Minecraft!");
-	}
+import fr.progz.plumlib.arch.ModuleConfig;
+
+public class PLib extends JavaPlugin implements ModuleConfig {
+
+    // #####################################################
+    //
+    //                  SECTION Implements
+    //
+    // #####################################################
+
+    @Override
+    public ChatColor getBracketColor() { return ChatColor.GOLD;}
+    @Override
+    public ChatColor getColor() { return ChatColor.AQUA;}
+    @Override
+    public boolean isModule() { return false;}
+    @Override
+    public String getModuleName() { return "PlumLib";}
+    // !SECTION
 
     @Override
     public void onEnable() {
-		getServer().getPluginManager().registerEvents(this, this);
+        super.onEnable();
+        sendInitMsg();
     }
-
+ 
 }
