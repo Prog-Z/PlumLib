@@ -24,7 +24,7 @@ public abstract class CustomInventory {
 
     public void newInventory(int size, String name) {
         // Create a new inventory, with no owner (as this isn't a real inventory)
-        inv = Bukkit.createInventory(null, size, name);
+        inv = Bukkit.createInventory(null, (size - 1) / 9 * 9 + 9 /* get a multiple of 9 */, name);
     }
 
     public CustomInventory(int size, String name) {
@@ -64,6 +64,7 @@ public abstract class CustomInventory {
 
     // You can open the inventory with this
     public void openInventory(final HumanEntity ent) {
+        assert(inv != null); // You should call newInventory() before !
         ent.openInventory(inv);
     }
 
@@ -98,7 +99,7 @@ public abstract class CustomInventory {
         e.setCancelled(true);
     }
 
-    public boolean drag(final InventoryClickEvent e) {
+    public boolean tryToDrag(final InventoryDragEvent e) {
         if (e.getInventory() == inv) {
             drag(e);
             return true;
