@@ -8,13 +8,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.progz.io.checker.ConfigDirChecker;
 import fr.progz.io.checker.FileChecker;
 import fr.progz.io.plum.v1.DBCreator;
-import fr.progz.plumlib.arch.ModuleConfig;
+import fr.progz.plumlib.arch.ModuleChat;
 /**
  *  Plugin class for IO Lib
  * @author Meltwin
  * @version 1.0.0
  */
-public class Main extends JavaPlugin implements ModuleConfig {
+public class Main extends JavaPlugin implements ModuleChat {
 
 	@Override
 	public void onEnable() {
