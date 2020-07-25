@@ -9,22 +9,25 @@ import org.bukkit.ChatColor;
 /**
  * Interface for module base command
  */
-public interface ModuleConfig extends ColoredMessage {
+public interface ModuleChat extends ColoredMessage {
 
     // #####################################################
 	// 
 	// 					ANCHOR Module Properties
 	// 
     // #####################################################
+
+    byte TYPE_MODULE = 0;
+    byte TYPE_PLUGIN = 1;
+    byte TYPE_ERROR  = 2;
     
-    boolean isModule = true;
     String moduleName = "Module";
     ChatColor moduleBracket = ChatColor.GOLD;
     ChatColor moduleColor = ChatColor.RED;
 
     // GET
 
-    default boolean isModule() {return isModule;}
+    default byte moduleType() {return TYPE_MODULE;}
     default String getModuleName() {return moduleName;}
     default ChatColor getColor() {return moduleColor;}
     default ChatColor getBracketColor() {return moduleBracket;}
@@ -40,7 +43,7 @@ public interface ModuleConfig extends ColoredMessage {
     // ANCHOR INFO Message
     /**Send a init message to the console */
     default void sendInitMsg() {
-        sendMsg(String.format("Init %1$s %2$s",(isModule())? "module" : "plugin",getModuleName()));
+        sendMsg(String.format("Init %1$s %2$s",getModuleType(moduleType()),getModuleName()));
     }
         
     // ANCHOR Console Properties
@@ -51,7 +54,7 @@ public interface ModuleConfig extends ColoredMessage {
      * @param prefix true if prefix is utilize
      */
     default void sendMsg(String msg, byte type, boolean prefix) {
-        Bukkit.getConsoleSender().sendMessage(String.format("%1$s %2$s",(prefix) ? getPrefix()+" " : "", getMsgColor(type), msg));
+        Bukkit.getConsoleSender().sendMessage(String.format("%1$s %2$s%3$s",(prefix) ? getPrefix()+" " : "", getMsgColor(type), msg));
     }
     /**
      * Send a message to the console with the color associated to the type
@@ -83,6 +86,7 @@ public interface ModuleConfig extends ColoredMessage {
      * Send a message to the given player with the color associated to the type
      * @param msg
      * @param type (MessageType property)
+     * @see MessageType
      */
     default void sendMsg(Player p, String msg, byte type) {
         sendMsg(p,msg,type,true);
@@ -93,6 +97,22 @@ public interface ModuleConfig extends ColoredMessage {
      */
     default void sendMsg(Player p, String msg) {
         sendMsg(p,msg,MessageType.DEFAULT,true);
+    }
+    // !SECTION
+    // #####################################################
+    // 
+    //                  SECTION Methods
+    // 
+    // #####################################################
+    default String getModuleType(byte type) {
+        switch(type) {
+            case TYPE_PLUGIN:
+                return "plugin";
+            case TYPE_ERROR:
+                return "error";
+            default:
+                return "module";
+        }
     }
     // !SECTION
 }

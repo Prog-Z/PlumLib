@@ -3,9 +3,9 @@ package fr.progz.plumlib;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.progz.plumlib.arch.ModuleConfig;
+import fr.progz.plumlib.arch.ModuleChat;
 
-public class PLib extends JavaPlugin implements ModuleConfig {
+public class PLib extends JavaPlugin implements ModuleChat {
 
     // #####################################################
     //
@@ -18,7 +18,7 @@ public class PLib extends JavaPlugin implements ModuleConfig {
     @Override
     public ChatColor getColor() { return ChatColor.AQUA;}
     @Override
-    public boolean isModule() { return false;}
+    public byte moduleType() { return ModuleChat.TYPE_PLUGIN;}
     @Override
     public String getModuleName() { return "PlumLib";}
     // !SECTION
