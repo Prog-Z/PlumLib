@@ -48,13 +48,23 @@ public class SerializedVariablesGUI extends CustomInventory {
     @Override
     public void initializeItems() {
         for (SerializedObject<Location> coord : serializedLocGetter) {
-            inv.addItem(createGuiItem(Material.BLUE_WOOL, coord.name, 
-                coord.value.getBlockX() + " / " + coord.value.getBlockY() + " / "  + coord.value.getBlockZ(), 
-                coord.description));
+            if (coord.value == null) {
+                inv.addItem(createGuiItem(Material.LIGHT_BLUE_WOOL, coord.name, 
+                    "null", 
+                    coord.description));
+            }
+            else {
+                inv.addItem(createGuiItem(Material.BLUE_WOOL, coord.name, 
+                    coord.value.getBlockX() + " / " + coord.value.getBlockY() + " / "  + coord.value.getBlockZ(), 
+                    coord.description));
+            }
         }
 
         for (SerializedObject<Boolean> bool : serializedBoolGetter) {
-            if (bool.value) {
+            if (bool.value == null) {
+                inv.addItem(createGuiItem(Material.GRAY_WOOL, bool.name,  "null", bool.description));
+            }
+            else if (bool.value) {
                 inv.addItem(createGuiItem(Material.GREEN_WOOL, bool.name,  "true", bool.description));
             }
             else {
