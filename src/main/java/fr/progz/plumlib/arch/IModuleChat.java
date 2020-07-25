@@ -3,13 +3,13 @@ package fr.progz.plumlib.arch;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import fr.progz.plumlib.chat.ColoredMessage;
-import fr.progz.plumlib.chat.MessageType;
+import fr.progz.plumlib.chat.IColoredMessage;
+import fr.progz.plumlib.chat.IMessageType;
 import org.bukkit.ChatColor;
 /**
  * Interface for module base command
  */
-public interface ModuleChat extends ColoredMessage {
+public interface IModuleChat extends IColoredMessage {
 
     // #####################################################
 	// 
@@ -68,7 +68,7 @@ public interface ModuleChat extends ColoredMessage {
      * Send a DEFAULT message in the console
      */
     default void sendMsg(String msg) {
-        sendMsg(msg,MessageType.DEFAULT,true);
+        sendMsg(msg,IMessageType.DEFAULT,true);
     }
 
 
@@ -86,7 +86,7 @@ public interface ModuleChat extends ColoredMessage {
      * Send a message to the given player with the color associated to the type
      * @param msg
      * @param type (MessageType property)
-     * @see MessageType
+     * @see IMessageType
      */
     default void sendMsg(Player p, String msg, byte type) {
         sendMsg(p,msg,type,true);
@@ -96,7 +96,7 @@ public interface ModuleChat extends ColoredMessage {
      * @param msg
      */
     default void sendMsg(Player p, String msg) {
-        sendMsg(p,msg,MessageType.DEFAULT,true);
+        sendMsg(p,msg,IMessageType.DEFAULT,true);
     }
     // !SECTION
     // #####################################################
