@@ -3,8 +3,8 @@ package fr.progz.io.database.errors;
 import org.bukkit.ChatColor;
 
 import fr.progz.io.IOMessage;
-import fr.progz.plumlib.arch.ModuleChat;
-import fr.progz.plumlib.chat.MessageType;
+import fr.progz.plumlib.arch.IModuleChat;
+import fr.progz.plumlib.chat.IMessageType;
 
 /**
  * Wrapper exception class for DB IO for Plum plugin
@@ -12,7 +12,7 @@ import fr.progz.plumlib.chat.MessageType;
  * @author Meltwin
  * @version 1.0.0
  */
-public class DBException extends Exception implements ModuleChat {
+public class DBException extends Exception implements IModuleChat {
 
 	// #####################################################
 	//
@@ -26,7 +26,7 @@ public class DBException extends Exception implements ModuleChat {
 
 	@Override
 	public byte moduleType() {
-		return ModuleChat.TYPE_ERROR;
+		return IModuleChat.TYPE_ERROR;
 	}
 	
 	@Override
@@ -74,7 +74,7 @@ public class DBException extends Exception implements ModuleChat {
 	public void printStackTrace() {
 		sendMsg("--- SQL Error ----");
 		sendMsg(String.format("%1$s %2$d : %3$s", "Erreur : ", EXCEPTIONCODE, DBErrorType.E_MESSAGE[EXCEPTIONCODE]),
-				MessageType.ERROR, false);
+				IMessageType.ERROR, false);
 		if (e != null) {
 			e.printStackTrace();
 		}
