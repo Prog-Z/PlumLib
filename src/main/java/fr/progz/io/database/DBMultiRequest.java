@@ -88,9 +88,17 @@ public abstract class DBMultiRequest {
 	public DBException closeDB() {
 		if (ConfigFiles.DB_REQ_LOG) Bukkit.getConsoleSender().sendMessage(IOMessage.closeConnect);
 		if (isConnected()) {
-			clearRequests();
-			db = null;
-			return new DBException(DBErrorType.DB_CLOSED_SUCCESS,null);
+			try {
+				clearRequests();
+				db.close();
+				return new DBException(DBErrorType.DB_CLOSED_SUCCESS,null);
+			}
+			catch (SQLException e) {
+				return new DBException(DBErrorType.DB_NOT_FOUND, e);
+			}
+			finally {
+				db = null;
+			}
 		}
 		else {
 			clearRequests();

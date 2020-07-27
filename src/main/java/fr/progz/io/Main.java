@@ -49,14 +49,6 @@ public class Main extends JavaPlugin implements IModuleChat {
 				//this.checkDB();
 			} catch (IOException e) {e.printStackTrace();disablePlugin();} 
 		}
-		else {
-			// TODO : check la version + updater
-			/*try {
-				db.load(); // Load the database
-				this.checkDB();
-			} catch (IOException e) {e.printStackTrace();disablePlugin();} */
-			
-		}
 	}
 	/**
 	 * Disable the plugin on any fatal error encountered

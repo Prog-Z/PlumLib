@@ -192,6 +192,7 @@ public abstract class DBFragment extends DBMultiRequest implements IModuleChat {
                                 break;
                             }
                         }
+                        throw new DBException(DBErrorType.RS_SUCCESS, null);
                     }
                 } catch (SQLException e) { throw new DBException(DBErrorType.RS_CLOSED_OR_DB_ACCESS_ERROR, e); }
                 break;
