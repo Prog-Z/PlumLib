@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import fr.progz.plumlib.chat.IColoredMessage;
 import fr.progz.plumlib.chat.IMessageType;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 /**
  * Interface for module base command
  */
@@ -96,6 +97,33 @@ public interface IModuleChat extends IColoredMessage {
      * @param msg
      */
     default void sendMsg(Player p, String msg) {
+        sendMsg(p,msg,IMessageType.DEFAULT,true);
+    }
+
+    // ANCHOR CommandSender
+    /**
+     * Send a message to the given player with the color associated to the type
+     * @param msg
+     * @param type (MessageType property)
+     * @param prefix true if prefix is utilize
+     */
+    default void sendMsg(CommandSender p, String msg, byte type, boolean prefix) {
+        p.sendMessage(String.format("%1$s%2$s %3$s",(prefix) ? getPrefix()+" " : "",getMsgColor(type),msg));
+    }
+    /**
+     * Send a message to the given player with the color associated to the type
+     * @param msg
+     * @param type (MessageType property)
+     * @see IMessageType
+     */
+    default void sendMsg(CommandSender p, String msg, byte type) {
+        sendMsg(p,msg,type,true);
+    }
+    /**
+     * Send a DEFAULT message to the given player
+     * @param msg
+     */
+    default void sendMsg(CommandSender p, String msg) {
         sendMsg(p,msg,IMessageType.DEFAULT,true);
     }
     // !SECTION
