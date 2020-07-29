@@ -89,6 +89,7 @@ public abstract class DBFragment extends DBMultiRequest implements IModuleChat {
         }
     }
 
+    // FIXME: Error, it tries to recreate some existing DB
     private void checkDB() throws DBException {
         sendMsg(CHECK_START, IMessageType.INFO);
         // TODO Check DB File

@@ -7,7 +7,8 @@ import fr.progz.io.ConfigFiles;
 /**
  * Manage config files
  * @author Meltwin
- * @version 1.0.0      10/04/2020
+ * @version 1.0.0      
+ * 10/04/2020
  */
 public class FileChecker {
 	
