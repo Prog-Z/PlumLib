@@ -28,10 +28,10 @@ public interface IModuleChat extends IColoredMessage {
 
     // GET
 
-    default byte moduleType() {return TYPE_MODULE;}
-    default String getModuleName() {return moduleName;}
-    default ChatColor getColor() {return moduleColor;}
-    default ChatColor getBracketColor() {return moduleBracket;}
+    public default byte moduleType() {return TYPE_MODULE;}
+    public default String getModuleName() {return moduleName;}
+    public default ChatColor getColor() {return moduleColor;}
+    public default ChatColor getBracketColor() {return moduleBracket;}
     default String getPrefix() {return String.format("%1$s[%2$s%3$s%1$s]",getBracketColor(),getColor(),getModuleName());}
 
 
@@ -43,7 +43,7 @@ public interface IModuleChat extends IColoredMessage {
 
     // ANCHOR INFO Message
     /**Send a init message to the console */
-    default void sendInitMsg() {
+    public default void sendInitMsg() {
         sendMsg(String.format("Init %1$s %2$s",getModuleType(moduleType()),getModuleName()));
     }
         
@@ -54,7 +54,7 @@ public interface IModuleChat extends IColoredMessage {
      * @param type (MessageType property)
      * @param prefix true if prefix is utilize
      */
-    default void sendMsg(String msg, byte type, boolean prefix) {
+    public default void sendMsg(String msg, byte type, boolean prefix) {
         Bukkit.getConsoleSender().sendMessage(String.format("%1$s %2$s%3$s",(prefix) ? getPrefix()+" " : "", getMsgColor(type), msg));
     }
     /**
@@ -62,13 +62,13 @@ public interface IModuleChat extends IColoredMessage {
      * @param msg
      * @param type (MessageType property)
      */
-    default void sendMsg(String msg, byte type) {
+    public default void sendMsg(String msg, byte type) {
         sendMsg(msg,type,true);
     }
     /**
      * Send a DEFAULT message in the console
      */
-    default void sendMsg(String msg) {
+    public default void sendMsg(String msg) {
         sendMsg(msg,IMessageType.DEFAULT,true);
     }
 
@@ -80,7 +80,7 @@ public interface IModuleChat extends IColoredMessage {
      * @param type (MessageType property)
      * @param prefix true if prefix is utilize
      */
-    default void sendMsg(Player p, String msg, byte type, boolean prefix) {
+    public default void sendMsg(Player p, String msg, byte type, boolean prefix) {
         p.sendMessage(String.format("%1$s%2$s %3$s",(prefix) ? getPrefix()+" " : "",getMsgColor(type),msg));
     }
     /**
@@ -89,14 +89,14 @@ public interface IModuleChat extends IColoredMessage {
      * @param type (MessageType property)
      * @see IMessageType
      */
-    default void sendMsg(Player p, String msg, byte type) {
+    public default void sendMsg(Player p, String msg, byte type) {
         sendMsg(p,msg,type,true);
     }
     /**
      * Send a DEFAULT message to the given player
      * @param msg
      */
-    default void sendMsg(Player p, String msg) {
+    public default void sendMsg(Player p, String msg) {
         sendMsg(p,msg,IMessageType.DEFAULT,true);
     }
 
@@ -107,7 +107,7 @@ public interface IModuleChat extends IColoredMessage {
      * @param type (MessageType property)
      * @param prefix true if prefix is utilize
      */
-    default void sendMsg(CommandSender p, String msg, byte type, boolean prefix) {
+    public default void sendMsg(CommandSender p, String msg, byte type, boolean prefix) {
         p.sendMessage(String.format("%1$s%2$s %3$s",(prefix) ? getPrefix()+" " : "",getMsgColor(type),msg));
     }
     /**
@@ -116,14 +116,14 @@ public interface IModuleChat extends IColoredMessage {
      * @param type (MessageType property)
      * @see IMessageType
      */
-    default void sendMsg(CommandSender p, String msg, byte type) {
+    public default void sendMsg(CommandSender p, String msg, byte type) {
         sendMsg(p,msg,type,true);
     }
     /**
      * Send a DEFAULT message to the given player
      * @param msg
      */
-    default void sendMsg(CommandSender p, String msg) {
+    public default void sendMsg(CommandSender p, String msg) {
         sendMsg(p,msg,IMessageType.DEFAULT,true);
     }
     // !SECTION

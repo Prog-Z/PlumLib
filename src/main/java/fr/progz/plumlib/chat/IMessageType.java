@@ -14,5 +14,5 @@ public interface IMessageType {
     ChatColor COLOR_SUCCESS = ChatColor.GREEN;
     ChatColor COLOR_ERROR = ChatColor.DARK_RED;
     ChatColor COLOR_WARNING = ChatColor.YELLOW;
-    ChatColor COLOR_INFO = ChatColor.BLUE;
+    ChatColor COLOR_INFO = ChatColor.AQUA;
 }
