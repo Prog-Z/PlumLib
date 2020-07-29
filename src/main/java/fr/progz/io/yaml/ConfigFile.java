@@ -3,7 +3,6 @@ package fr.progz.io.yaml;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -35,7 +34,7 @@ public class ConfigFile {
         _class = c;
         _defaultFile = defaultFile;
         _dir = (configDir.substring(configDir.length() - 1).equals("/")) ? configDir : configDir + "/";
-        _dir = _dir + ((innerDir.substring(innerDir.length() - 1).equals("/")) ? innerDir : innerDir + "/");
+        _dir = _dir + ((innerDir.length() == 0 || innerDir.substring(innerDir.length() - 1).equals("/")) ? innerDir : innerDir + "/");
         _fileName = String.format("%s.yml", outFile);
         _file = new File(String.format("%1$s%2$s", _dir, _fileName));
         checkExist();
