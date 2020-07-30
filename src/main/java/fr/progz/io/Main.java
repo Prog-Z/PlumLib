@@ -19,6 +19,7 @@ public class Main extends JavaPlugin implements IModuleChat {
 	public void onEnable() {
 		super.onEnable();
 		checkFiles();
+
 	}
 	/**
 	 * Check if all the config files are here
