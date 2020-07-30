@@ -25,6 +25,7 @@ public interface IModuleChat extends IColoredMessage {
     String moduleName = "Module";
     ChatColor moduleBracket = ChatColor.GOLD;
     ChatColor moduleColor = ChatColor.RED;
+    
 
     // GET
 
@@ -33,7 +34,6 @@ public interface IModuleChat extends IColoredMessage {
     public default ChatColor getColor() {return moduleColor;}
     public default ChatColor getBracketColor() {return moduleBracket;}
     default String getPrefix() {return String.format("%1$s[%2$s%3$s%1$s]",getBracketColor(),getColor(),getModuleName());}
-
 
     // #####################################################
     // 
