@@ -18,7 +18,7 @@ public class Main extends JavaPlugin implements IModuleChat {
 	@Override
 	public void onEnable() {
 		super.onEnable();
-		checkFiles();
+		//checkFiles();
 
 	}
 	/**

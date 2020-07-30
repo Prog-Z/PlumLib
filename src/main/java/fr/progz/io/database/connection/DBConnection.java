@@ -1,5 +1,6 @@
 package fr.progz.io.database.connection;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,9 +20,11 @@ public class DBConnection implements IModuleChat {
     private Connection connection;
     private I_DBConfig config;
 
-    public DBConnection(I_DBConfig conf) throws DBException {
+    public DBConnection(I_DBConfig conf) {
         config = conf;
-        makeConnection();
+
+        File db = new File(conf.getAbsoluteDBPathString());
+        if (!db.exists()) db.getParentFile().mkdirs();
     }
 
     public void makeConnection() throws DBException {

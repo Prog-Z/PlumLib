@@ -3,26 +3,28 @@ package fr.progz.io.database.config;
 import fr.progz.plumlib.chat.I_ChatMessage;
 
 public enum DBMessages implements I_ChatMessage {
-    CONNECTING_DB("Connecting to DB"),
-    CLOSE_DB("Closing Connection"),
-    PREPARE_REQ("Preparing request %s"),
-    EXECUTING_REQ("Excuting request"),
+    CONNECTING_DB(DBMessageType.NULL,"Connecting to DB"),
+    CLOSE_DB(DBMessageType.NULL,"Closing Connection"),
+    PREPARE_REQ(DBMessageType.PREPARE,"%s"),
+    EXECUTING_REQ(DBMessageType.EXECUTE,""),
     
-    FRAG_CHECK_START("Start checking for existing tables"),
-    FRAG_CHECK_RESULT("Found %1$d/%2$d"),
-    FRAG_BUILD_START("Start making missing tables"),
-    FRAG_BUILD_END("Finished making tables"),
-    FRAG_LINE_START("Start adding lines in missing tables"),
-    FRAG_LINE_END("Finished adding lines");
+    FRAG_CHECK_START(DBMessageType.INFO,"Start checking for existing tables"),
+    FRAG_CHECK_RESULT(DBMessageType.NULL,"Found %1$d/%2$d"),
+    FRAG_BUILD_START(DBMessageType.INFO,"Start making missing tables"),
+    FRAG_BUILD_END(DBMessageType.INFO,"Finished making tables"),
+    FRAG_LINE_START(DBMessageType.INFO,"Start adding lines in missing tables"),
+    FRAG_LINE_END(DBMessageType.INFO,"Finished adding lines");
 
+    private DBMessageType type;
     private String msg;
-    private DBMessages(String msg) {
+    private DBMessages(DBMessageType type, String msg) {
+        this.type = type;
         this.msg = msg;
     }
 
     @Override
     public String getMessage() {
-        return msg;
+        return type.get()+msg;
     }
     
 }

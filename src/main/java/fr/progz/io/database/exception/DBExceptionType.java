@@ -7,7 +7,8 @@ public enum DBExceptionType {
     CO_CLOSE("Database has successfully closed.",false),
     REQ_SUCCESS("Request successful.",false),
     RS_CLOSED_OR_DB_NOT_FOUND("ResultSet closed or DB not found",true),
-    RS_SUCCESS("Resultset read successfully.",false);
+    RS_SUCCESS("Resultset read successfully.",false),
+    RS_EMPTY("Resulset is empty",false);
 
     private String msg;
     private boolean error;

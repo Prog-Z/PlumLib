@@ -10,8 +10,9 @@ import fr.progz.io.database.config.DBMessages;
 import fr.progz.io.database.connection.DBConnection;
 import fr.progz.io.database.exception.DBException;
 import fr.progz.io.database.exception.DBExceptionType;
+import fr.progz.plumlib.chat.IMessageType;
 
-public abstract class   PlumRequester {
+public abstract class PlumRequester {
 
     private DBConnection _co;
     private ArrayList<String> requests = new ArrayList<>();
@@ -43,13 +44,13 @@ public abstract class   PlumRequester {
                 String r = requests.get(reqID);
                 
                 // Preparing req
-                if (_co.getConfig().doDBLog()) _co.sendMsg(String.format(DBMessages.PREPARE_REQ.getMessage(),r)); // LOG IN CONSOLE
+                if (_co.getConfig().doDBLog()) _co.sendMsg(String.format(DBMessages.PREPARE_REQ.getMessage(),r),IMessageType.DEFAULT,false); // LOG IN CONSOLE
                 req = _co.getConnection().prepareStatement(r);
                 for (int argID = 0; argID < args.get(reqID).size(); argID++)
                     req.setString(argID+1,args.get(reqID).get(argID));
 
                 // Executing req
-                if (_co.getConfig().doDBLog()) _co.sendMsg(DBMessages.EXECUTING_REQ.getMessage());
+                if (_co.getConfig().doDBLog()) _co.sendMsg(DBMessages.EXECUTING_REQ.getMessage(),IMessageType.SUCCESS,false);
                 req.execute();
 
                 // Transform req

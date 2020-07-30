@@ -15,7 +15,7 @@ public class DBException extends Exception implements IModuleChat {
 
         if (isError()) {
             sendMsg(type.getMsg(),IMessageType.ERROR,false);
-            if (e!=null) e.printStackTrace();
+            if (this.e!=null) this.e.printStackTrace();
         } 
     }
     public boolean isError() {return type.isError();}

@@ -1,7 +1,5 @@
 package fr.progz.io.config;
 
-import fr.progz.io.config.PathConfig;
-
 public interface DBConfig {
     /**
 	 * The version of the database (int)
