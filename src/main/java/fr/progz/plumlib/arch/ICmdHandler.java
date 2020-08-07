@@ -11,9 +11,7 @@ import org.bukkit.entity.Player;
  * @version 1.0
  */
 public interface ICmdHandler {
-    public default boolean command(CommandSender sender, Command command, String label, String[] args) {
-        return true;
-    };
+    public boolean command(CommandSender sender, Command command, String label, String[] args);
 
     public default boolean isConsole(CommandSender s) {
         return s instanceof ConsoleCommandSender;
