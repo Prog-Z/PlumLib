@@ -3,15 +3,15 @@ package fr.progz.plumlib.maths.collisions;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import fr.progz.plumlib.maths.utils.Pos;
+import fr.progz.plumlib.maths.utils.Vec3;
 
 public abstract class CollideBox implements ICollider {
 
     protected String world_name;
-    protected Pos posA;
-    protected Pos posB;
+    protected Vec3 posA;
+    protected Vec3 posB;
 
-    public CollideBox(String wname, Pos posA, Pos posB) {
+    public CollideBox(String wname, Vec3 posA, Vec3 posB) {
         this.world_name = wname; this.posA = posA; this.posB = posB;
     }
 
