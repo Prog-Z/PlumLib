@@ -45,6 +45,11 @@ public class ConfigFile {
         if (!_file.exists()) {
             System.out.println(String.format("File %1$s%2$s not found, creating it",_dir,_fileName));
             _file.getParentFile().mkdirs();
+            try {
+                _file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             if (_defaultFile != null) importDefault();
         }
     }
