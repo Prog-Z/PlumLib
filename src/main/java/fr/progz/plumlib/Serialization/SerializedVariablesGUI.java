@@ -81,4 +81,10 @@ public class SerializedVariablesGUI extends CustomInventory {
         clear();
         initializeItems();
     }
+
+    @Override
+    public void openInventory(final HumanEntity ent) {
+        refresh();
+        super.openInventory(ent);
+    }   
 }
