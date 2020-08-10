@@ -70,4 +70,5 @@ public class ConfigFile {
     // SECTION GETTERS / SETTERS
     // #####################################################
     public FileConfiguration getConfig() {return _config;}
+    public File getFile() {return _file;}
 }
