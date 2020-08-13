@@ -1,4 +1,6 @@
-package fr.progz.plumlib.maths.shape.config;
+package fr.progz.plumlib.maths.shape.spiral;
+
+import fr.progz.plumlib.maths.shape.config.ShapeConfig;
 
 public class SpiralConfig extends ShapeConfig {
     public float eccentricity = 0f;

@@ -1,19 +1,37 @@
 package fr.progz.plumlib.maths.utils;
 
-import fr.progz.plumlib.maths.utils.trigo.Angle;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 
+import fr.progz.plumlib.maths.utils.trigo.Angle;
+import fr.progz.plumlib.maths.utils.trigo.RotationType;
+
+/** Create a 3D ortho normed referenciel */
 public class Referentiel {
-    protected Vec3 _x = new Vec3(1,0,0), _y = new Vec3(0,1,0), _z = new Vec3(0,0,1);
+    protected final Vec3 _x = new Vec3(1,0,0), _y = new Vec3(0,1,0), _z = new Vec3(0,0,1), _locVec = new Vec3();
+    protected Location _loc = new Location(Bukkit.getWorld("world"),0,0,0);
 
     public Referentiel() {}
 
-    protected void setDefaultAxes() {
+    public void setLocation(Location loc) {
+        _loc = loc;
+        _locVec.set(loc.getX(),loc.getY(),loc.getZ());
+    }
+    public Location getLocation() {return _loc;}
+    public Vec3 getLocationVec() {return _locVec;}
+
+    public void setDefaultAxes() {
         _x.set(1, 0, 0);
         _y.set(0, 1, 0);
         _z.set(0, 0, 1);
     }
 
     public final void rotate(Rotator rot) {
+        this.rotateX(rot.getAngleX());
+        this.rotateY(rot.getAngleY());
+        this.rotateZ(rot.getAngleZ());
+    }
+    public final void rotate(Rotator rot, long refreshTick) {
         this.rotateX(rot.getAngleX());
         this.rotateY(rot.getAngleY());
         this.rotateZ(rot.getAngleZ());
@@ -57,7 +75,7 @@ public class Referentiel {
         _y.set(xY, yY, zY);
     }
 
-    public Vec3 getAxeX() {return _x;}
-    public Vec3 getAxeY() {return _y;}
-    public Vec3 getAxeZ() {return _z;}
+    public final Vec3 getAxeX() {return _x;}
+    public final Vec3 getAxeY() {return _y;}
+    public final Vec3 getAxeZ() {return _z;}
 }

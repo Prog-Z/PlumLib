@@ -1,8 +1,6 @@
-package fr.progz.plumlib.maths.shape;
+package fr.progz.plumlib.maths.shape.spiral;
 
-import java.util.ArrayList;
-
-import fr.progz.plumlib.maths.shape.config.SpiralConfig;
+import fr.progz.plumlib.maths.shape.Shape;
 import fr.progz.plumlib.maths.utils.Vec3;
 
 public class Spiral extends Shape {
@@ -24,7 +22,7 @@ public class Spiral extends Shape {
             double x = (config.eccentricity+config.dilatation*theta)*Math.cos(theta + dephasase);
             double y = (config.eccentricity+config.dilatation*theta)*Math.sin(theta + dephasase);
 
-            _points.add(new Vec3(x,y,0));
+            _basePoints.add(new Vec3(x,y,0));
         }
     }
     

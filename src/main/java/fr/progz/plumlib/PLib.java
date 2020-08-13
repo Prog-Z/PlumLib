@@ -28,5 +28,4 @@ public class PLib extends JavaPlugin implements IModuleChat {
         super.onEnable();
         sendInitMsg();
     }
- 
 }

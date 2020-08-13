@@ -3,6 +3,9 @@ package fr.progz.plumlib.maths.utils;
 import fr.progz.plumlib.maths.utils.trigo.Angle;
 import fr.progz.plumlib.maths.utils.trigo.AngleType;
 
+/** 
+ * Class for storing three angles (one per axis)
+ */
 public class Rotator {
     
     private Angle angle_x = new Angle(0), angle_y = new Angle(0), angle_z = new Angle(0);
@@ -19,14 +22,17 @@ public class Rotator {
     }
     public Rotator() {}
 
-    public void setAngleX(double x) {this.angle_x = new Angle(x);}
-    public void setAngleY(double y) {this.angle_y = new Angle(y);}
-    public void setAngleZ(double z) {this.angle_z = new Angle(z);}
     public void setAngleX(double x, AngleType type) {this.angle_x = new Angle(x,type);}
     public void setAngleY(double y, AngleType type) {this.angle_y = new Angle(y,type);}
     public void setAngleZ(double z, AngleType type) {this.angle_z = new Angle(z,type);}
+    public void setAngleX(double x) {this.angle_x = new Angle(x);}
+    public void setAngleY(double y) {this.angle_y = new Angle(y);}
+    public void setAngleZ(double z) {this.angle_z = new Angle(z);}
+    
 
     public Angle getAngleX() {return this.angle_x;}
     public Angle getAngleY() {return this.angle_y;}
     public Angle getAngleZ() {return this.angle_z;}
+
+    public static double getKineticAngle(double anglePerSecond, long refreshTime) { return (anglePerSecond*refreshTime)/20;}
 }
