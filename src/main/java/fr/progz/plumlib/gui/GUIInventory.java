@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 // To use this class, you have to instanciate it, 
 // and add items to it with addItem() or setItem().
-// The action a click does depends of the run() function of the added GUIItem. 
+// The action a click does depends of the onClick() function of the added GUIItem. 
 public final class GUIInventory {
     protected Inventory inv;
 
@@ -57,7 +57,7 @@ public final class GUIInventory {
 
         // // Using slots click is a best option for your inventory click's
         GUIItem item = items.get(e.getCurrentItem().getItemMeta().getDisplayName());
-        item.run();
+        item.onClick(e);
     }
 
     public boolean tryToClick(final InventoryClickEvent e) {
