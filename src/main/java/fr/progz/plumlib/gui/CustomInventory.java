@@ -45,12 +45,12 @@ public abstract class CustomInventory {
     // }
 
     // Nice little method to create a gui item with a custom name, and description
-    protected static ItemStack createGuiItem(final Material material, final String name, final String... lore) {
+    public static ItemStack createGuiItem(final Material material, final String name, final String... lore) {
         return createGuiItem(material, name, Arrays.asList(lore));
     }
 
     // Nice little method to create a gui item with a custom name, and description
-    protected static ItemStack createGuiItem(final Material material, final String name, final List<String> lore) {
+    public static ItemStack createGuiItem(final Material material, final String name, final List<String> lore) {
         final ItemStack item = new ItemStack(material, 1);
         final ItemMeta meta = item.getItemMeta();
 
