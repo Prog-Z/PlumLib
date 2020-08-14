@@ -14,6 +14,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+// To use this class, you have to inherit it and override initializeItems() and onClick() :
+// With initializeItems(), you add the items you want to show
+// With onClick(), you select the action your run depending of the slot
 public abstract class CustomInventory {
     protected Inventory inv;
 
