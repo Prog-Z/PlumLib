@@ -1,5 +1,8 @@
 package fr.progz.plumlib.container;
-
+/**
+ * 
+ * @param <T> 
+ */
 public class Pair<T> {
 
     private T _x;

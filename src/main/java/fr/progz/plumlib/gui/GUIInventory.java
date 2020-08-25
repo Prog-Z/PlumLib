@@ -1,6 +1,5 @@
 package fr.progz.plumlib.gui;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

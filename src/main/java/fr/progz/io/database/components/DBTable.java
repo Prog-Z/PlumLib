@@ -6,7 +6,7 @@ import fr.progz.io.database.components.columns.DBColumn;
 import fr.progz.plumlib.container.Pair;
 
 public abstract class DBTable {
-    protected ArrayList<DBColumn> columns = new ArrayList<>();
+    protected ArrayList<DBColumn<?>> columns = new ArrayList<>();
     protected ArrayList<String> lines = new ArrayList<>();
     protected ArrayList<Pair<String>> uniques = new ArrayList<>();
     protected boolean exist = false;
@@ -14,7 +14,7 @@ public abstract class DBTable {
     // #####################################################
     // SECTION Table Making
     // #####################################################
-    protected void appendColumn(DBColumn column) { columns.add(column); }
+    protected void appendColumn(DBColumn<?> column) { columns.add(column); }
     protected void addUnique(String colA, String colB) { uniques.add(new Pair<String>(colA,colB)); }
     public abstract String getTableName();
     // !SECTION
@@ -28,7 +28,7 @@ public abstract class DBTable {
 
         // ADD Column
         boolean first = true;
-        for(DBColumn col : columns) {
+        for(DBColumn<?> col : columns) {
             if (!first) output += ", ";
             else first = false;
             output += col.makeRequest();
