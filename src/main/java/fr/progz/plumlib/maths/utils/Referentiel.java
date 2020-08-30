@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import fr.progz.plumlib.maths.utils.trigo.Angle;
-import fr.progz.plumlib.maths.utils.trigo.RotationType;
 
 /** Create a 3D ortho normed referenciel */
 public class Referentiel {
