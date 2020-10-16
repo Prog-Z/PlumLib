@@ -90,7 +90,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <tasks>
-                        <copy file="target/plumlib-1.1.0.jar" todir="../../../Build/"/>
+                        <copy file="target/plumlib-1.1.0.jar" todir="../../0_Build/"/>
                     </tasks>
                 </configuration>
                 <executions>

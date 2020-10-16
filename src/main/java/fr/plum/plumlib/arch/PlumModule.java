@@ -18,21 +18,20 @@ public abstract class PlumModule implements IMessageSender {
      * Create an instance of a PlumModule
      */
     public PlumModule() {
-        _listener = new ArrayList<>();
+        listeners = new ArrayList<>();
     }
 
     public abstract void init();
 
     // EventListeners
-    protected final ArrayList<Listener> _listener;
+    protected final ArrayList<Listener> listeners;
 
-    public final ArrayList<Listener> getListerner() { return _listener; }
+    public final ArrayList<Listener> getListerner() { return listeners; }
 
     // CommandHandler
     @Nullable
-    public final ICmdHandler getCommandHandler() { return _commands; }
+    public final ICmdHandler getCommandHandler() { return commands; }
 
-    protected final void setCommandHandler(final ICmdHandler handler) { _commands = handler; }
-
-    protected ICmdHandler _commands;
+    protected ICmdHandler commands;
+    protected final void setCommandHandler(final ICmdHandler handler) { commands = handler; }
 }

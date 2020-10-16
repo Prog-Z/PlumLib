@@ -18,8 +18,9 @@ import fr.plum.plumlib.chat.sender.IMessageSender;
  */
 public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
 
-    ICmdHandler _commands;
+    ICmdHandler commands;
     ArrayList<PlumModule> modules;
+    protected final ArrayList<Listener> listeners;
 
     /**
      * Create an instance of a spigot plugin with the plum sublayer
@@ -29,11 +30,15 @@ public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
         super();
 
         modules = new ArrayList<>();
+        listeners = new ArrayList<>();
     }
 
     protected void addModule(@NotNull PlumModule module) {
         modules.add(module);
     }
+
+    protected void setCommandHandler(@NotNull ICmdHandler handler) { commands = handler; }
+    public final ArrayList<Listener> getListerner() { return listeners; }
 
     // #####################################################
     // SECTION Loading
@@ -42,8 +47,17 @@ public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
      * Launch the loading of the modules
      */
     protected final void init() {
-        sendInitMsg();
+        loadMyself();
         loadModules();
+    }
+
+    final void loadMyself() {
+
+        sendInitMsg();
+
+        // Listeners
+        for (Listener l : getListerner())
+            Bukkit.getPluginManager().registerEvents(l, this);
     }
 
     final void loadModules() {
@@ -64,7 +78,7 @@ public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
     @Override
     public final boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
         // For Plugin
-        if (_commands != null && _commands.command(sender, command, label, args)) 
+        if (commands != null && commands.command(sender, command, label, args)) 
             return true;
         
         // For Modules

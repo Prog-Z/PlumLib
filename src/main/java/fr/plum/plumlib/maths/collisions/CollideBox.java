@@ -11,8 +11,8 @@ public abstract class CollideBox implements ICollider {
     protected Vec3 posA;
     protected Vec3 posB;
 
-    public CollideBox(String wname, Vec3 posA, Vec3 posB) {
-        this.world_name = wname; this.posA = posA; this.posB = posB;
+    public CollideBox(String wname, Vec3 posA) {
+        this.world_name = wname; this.posA = posA;
     }
 
     @Override
