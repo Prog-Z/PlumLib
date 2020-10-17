@@ -3,8 +3,10 @@ package fr.plum.plumlib.io.yaml;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -56,7 +58,7 @@ public class ConfigFile {
     private void importDefault() {
         try {
             InputStream in = _class.getResourceAsStream(String.format("/%s.yml",_defaultFile)); // Read
-            Files.copy(in,Paths.get(_file.getAbsolutePath())); // Write
+            Files.copy(in,Paths.get(_file.getAbsolutePath()),StandardCopyOption.REPLACE_EXISTING); // Write
         }
         catch (IOException e) {
             e.printStackTrace();

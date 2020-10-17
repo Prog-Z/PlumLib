@@ -21,6 +21,14 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Prog-Z Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Prog-Z/PlumLib</url>
+        </repository>
+    </distributionManagement>
+
     <!-- Dependencies -->
     <dependencies>
         <!--Spigot API-->
