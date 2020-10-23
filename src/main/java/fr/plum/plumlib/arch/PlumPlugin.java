@@ -1,6 +1,7 @@
 package fr.plum.plumlib.arch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -18,7 +19,7 @@ import fr.plum.plumlib.chat.sender.IMessageSender;
  */
 public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
 
-    ICmdHandler commands;
+    CmdHandler commands;
     ArrayList<PlumModule> modules;
     protected final ArrayList<Listener> listeners;
 
@@ -37,8 +38,8 @@ public abstract class PlumPlugin extends JavaPlugin implements IMessageSender {
         modules.add(module);
     }
 
-    protected void setCommandHandler(@NotNull ICmdHandler handler) { commands = handler; }
-    public final ArrayList<Listener> getListerner() { return listeners; }
+    protected void setCommandHandler(@NotNull CmdHandler handler) { commands = handler; }
+    public final List<Listener> getListerner() { return listeners; }
 
     // #####################################################
     // SECTION Loading
