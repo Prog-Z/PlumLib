@@ -4,7 +4,7 @@
 
     <artifactId>plumlib</artifactId>
     <groupId>io.github.prog-z</groupId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 	
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -98,7 +98,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <tasks>
-                        <copy file="target/plumlib-1.1.1.jar" todir="../../0_Build/"/>
+                        <copy file="target/plumlib-1.1.2.jar" todir="/media/projets/5_Build/"/>
                     </tasks>
                 </configuration>
                 <executions>
