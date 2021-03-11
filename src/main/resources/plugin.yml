@@ -1,5 +1,5 @@
 name: plumlib
-version: 1.1.1
-author: [Meltwin,Prog'Z]
-main: fr.plum.plumlib.PLib
+version: 2.0.0-SNAPSHOT
+author: [Meltwin, Prog'Z]
+main: io.github.plum.plumlib.PlumLib
 api-version: 1.13
